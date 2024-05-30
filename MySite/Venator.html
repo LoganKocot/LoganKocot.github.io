@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Venator</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Home</strong> <span>Logan Kocot</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="CoR.html">Child Of Ruin</a></li>
+							<li><a href="Equator.html">Sesid Equator</a></li>
+							<li><a href="Venator.html">Venator</a></li>
+							<li><a href="Morak.html">Morak</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Venator</h1>
+									</header>
+									<span class="image main"><img src="images/VenSplash.png" alt="" /></span>
+									<p><h4>Responsibilities</h4>
+										<ul>
+											<li>Responsible for creating the level, from initial design to final iteration, to be experienced by over a quarter million players.</li>
+											<li>Responsible for optimizing the level.</li>
+											<li>Responsible for adjusting the old Venator level's lighting to fit the new one.</li>
+										</ul></p>
+									<p>While working on the Sesid Equator map for Galactic Contention, I had to adjust a side hangar for the Venator to work as the main hangar. After doing so, I began to wonder if the venator's interior could be designed to scale, based
+										 off of the connections left available to the central hangar and existing assets. 
+									</p>
+									<p>To start on the map, I first started with what I knew from the specs I was given:
+										<ul>
+											<li>The level should be comprised primarily of existing room assets, with any additional assets being created by myself.</li>
+											<li>Level dimensions should fit within the Venator, so it can be used in other levels as needed.</li>
+											<li>Only infantry combat needed to be supported.</li>
+										</ul>
+									</p>
+									<p>Aside from these specs, I had fairly free reign when it came to the design of the level. However, an added requirement I had for the map was that there should be many POIs, so as to support pseudo-random objective lattices.
+										Other level designers and myself have been working to update our various levels to use this, as it helps to improve gameplay for reasons largely unrelated to Venator.
+									</p>
+									<p>Working off of this, the best first step that I could take was to create a rough diagram of the flow between POIs. While the flow within each POI would vary, having a broad overview for the level was critical.
+										As I was only planning on spending a short weekend on this level, I used a simple hand drawing to outline my plans. It should be noted that this level has an abnormal setup, in that the GAR (defenders) have two ground mains - this was 
+										because a single, central main would not fit, and only having one off-center main would result in skewing the strength of the defense to one side.<br>
+										For the core design, the level functions as two halves, with numerous crossings between the two. This allows for flanking to still occur despite the small level size, if one side over or under extends.
+									</p>
+									<span class="image fit"><img src="images/venSketch.jpg" alt="" /></span>
+									<p>Working off of this diagram, I began to place the larger rooms, working from the front of the Venator to the back. Sections that would not quite fit were assembled with either planes or Blender.
+									</p>
+									<span class="image fit"><img src="images/VenDome.png" alt="" /></span>
+									<p>Once this was done, I moved on to smaller aspects, first adding crates, landing craft, and other obstacles for cover. After this, I moved on to details such as wall-mounted electrical boxes and window grates.</p>
+								   <span class="image fit"><img src="images/VenReactor.png" alt="" /></span>
+								   <p><span class="image left"><img src="images/VenWalkway.png" alt="" /></span>The central reactor section had to be made in Blender from existing components, as it was not already made. However, this allowed me to ensure that despite
+								 being a fairly open room, the sightlines were kept shorter and limited. This was done through a combination of the room being T-shaped, the pillars blocking sightlines, and having crates placed at specific intervals to block straightaways.</p>
+								 <span class="image fit"><img src="images/VenSideHangar.png" alt="" /></span>
+								   <p><span class="image left"><img src="images/VenHangar.png" alt="" /></span>The side and main hangars were different, in that I also wanted to be able to use them in other levels for the air vehicle spawns, and possibly for an objective at a landing pad. So, they also had to have suitable
+								 room for landing. This was easy for the main hangar, as it is large and sees no combat. However, the side hangars both needed to have room and have cover. This was solved by splitting the side hangars into 2 zones - the landing zone (closest to the shield wall),
+								 and the covered zone - closest to the interior wall. During gameplay, the player would not need to enter the landing zone due to how the hallways are structured. It is, effectively, a dead-end. 
+								 The zone with cover, however, enables the player to move through the level in relative safety. It still has suitable openings, however, in case the pilot is newer and overshoots their landing.</p>
+								 <p><span class="image left"><img src="images/VenCommand.png" alt="" /></span>A command overlook was also added to the main hangar. While it serves minimal purpose now, it has doorways included as there were originally plans to add a second level. However,
+								 this was moved to the backburner, as development efforts were needed elsewhere.<br><br><br><br><br> </p>
+								 <p>Finally, I had to take the existing lighting from our old Venator map (which required the Venator to be scaled up about 10 times in order to fit inside of it), and adjusted the point lights and effects to serve as the lighting layer for the new level.
+								</p>
+								</div>
+							</section>
+
+					</div>
+
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Minimap</h1>
+									</header>
+									<span class="image main"><img src="images/VenMinimap.jpg" alt="" /></span>
+									<p>Note: while the level was created by myslef, Voper created the minimap.
+									</p>
+							</section>
+
+					</div>
+
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Gameplay</h1>
+									</header>
+									<p><a href="https://www.youtube.com/watch?v=wbN7J4HPofo">Gameplay of Venator</a>
+										<br>
+										<a href="https://www.youtube.com/watch?v=xkMWaC9pj2w">Additional gameplay of Venator</a>
+										<br>
+										<a href="https://www.youtube.com/watch?v=hl4m5HkRiUI&t=1s">Trailer for the overhaul mod</a>
+									</p>
+									<p>Important note: I am not the creator of these videos. However, it is my belief that the gameplay demonstrated will be more authentic if it is done by someone who does not know all the ins and outs of the map.
+									</p>
+							</section>
+
+					</div>
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/logan-kocot-8132a8249/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+						<ul class="copyright">
+							<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

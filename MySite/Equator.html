@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sesid Equator</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Home</strong> <span>Logan Kocot</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="CoR.html">Child Of Ruin</a></li>
+							<li><a href="Equator.html">Sesid Equator</a></li>
+							<li><a href="Venator.html">Venator</a></li>
+							<li><a href="Morak.html">Morak</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Sesid Equator</h1>
+									</header>
+									<span class="image main"><img src="images/EqSplash.png" alt="" /></span>
+									<p><h4>Responsibilities</h4>
+										<ul>
+											<li>Responsible for creating the level, from initial design to final iteration, to be experienced by over a quarter million players.</li>
+											<li>Responsible for optimizing the level.</li>
+											<li>Responsible for scripting multiplayer level streaming.</li>
+											<li>Responsible for scripting procedural rock materials, which reduce resolution at different screen percentages.</li>
+											<li>Coordinated closely with the art team for lighting and assets, as needed.</li>
+										</ul></p>
+									<p>While with the team at Galactic Contention, I was given the opportunity and the responsibility to create a sequel level to the already-loved Sesid level. This level had to fit in the broader scope of Galactic Contention, which is a total conversion mod for an FPS game called Squad. In it, 2 teams of 50 players each fight in a variety of game modes for control of a planet.
+										As a level designer, I had to ensure that each of these game modes were offered support, whether or not they were planned to be featured at map launch.
+									</p>
+									<p>It was also critical that the game's logistics system was kept in mind when developing this level. While all mechanics are important, the logistics system governs how players spawn and fortify locations across large levels.
+									</p>
+									<p>To start on the map, I first started with what I knew from the specs I was given:
+										<ul>
+											<li>The level should be located on the planet Sesid.</li>
+											<li>Level dimensions should be 4x4 kilometers for the playable area.</li>
+											<li>Combined arms (infantry, armor, and air) must be supported.</li>
+											<li>There would be minimal to no new asset creation, as the art department already had plenty of work to do related to other high-priority tasks.</li>
+										</ul>
+									</p>
+									<p>Aside from these specs, I was given fairly free reign when it came to the design of the level. However, an added requirement I had for the map was that there should be many POIs, so as to support pseudo-random objective lattices.
+										Other level designers and myself have been working to update our various levels to use this system, as it helps to improve gameplay. This is for reasons largely unrelated to Sesid Equator, so I will skip over this reasoning for now.
+									</p>
+									<p>Working off this, the best first step I could take was to create a rough diagram of the flow between POIs. While the flow within each POI would vary, having a broad overview for a level so large was critical.
+										While my neat version for future reference is attached below, I usually start by drawing directly on a flat landscape, as it helps to better visualize scale and sightlines.
+									</p>
+									<span class="image fit"><img src="images/EqOutline.jpg" alt="" /></span>
+									<p>Working off of this diagram (which did see changes and iterations over time - this is the final version), I began to skulpt the terrain, apply a quick foliage paint, and place larger buildings.
+										 For buildings which were not being constructed from modular components, I did not use traditional blockouts, as the size of each was determined by the assets used. Instead, larger buildings functioned as part of the blockouts for the area, with smaller aspects being added later.
+										 These smaller aspects could include cover such as a stone, a barrier, or a crate.
+									</p>
+									<span class="image fit"><img src="images/EqInit.png" alt="" /></span>
+									<p>Once this was done, I moved on to smaller aspects, moving to progressively more and more detailed aspects to keep the map at a consistent level of quality. It should also be noted that each POI was given a similar treatment
+										 to the level as a whole, in that it was treated as it's own level within the broader context that is the Sesid Equator level. I also began using higher-quality assets, which required some additional optimization.
+								   </p>
+								   <span class="image fit"><img src="images/EqHQ.png" alt="" /></span>
+								   <p><span class="image left"><img src="images/EqBurn.png" alt="" /></span>Above, a section of the jungle was changed to a burn patch with additional wrecks. This serves to give the attackers an easier push towards the first point. The burned logs, stumps, and craters provide only horizontal cover, so they provide protection from
+									defenders within the treeline, but not from attackers atop the hilltop base. This decision as made, as the burn patch is not an objective to be fought over, and should not add too much difficulty to an objective at the beggining of the chain of objectives. 
+									Additionally, a ramp was added to better facilitate vehicles moving up and down the slope (before the rocks were added to improve visuals), as the bumpy terrain could occasionally cause them to flip.</p>
+									<span class="image fit"><img src="images/EqObj1.png" alt="" /></span>
+									<p><span class="image left"><img src="images/EqObj1Side.png" alt="" /></span>Here, the retaining wall serves to give the attackers an extra edge when pushing onto the objective. It serves as a one-way lane (excluding jetpack troopers),
+									 preventing the defenders from mounting a counter-offensive and retaking the treeline in that area. Additionally, by hindering the defenders from retaking the treeline, prolonged meat-grinder jungle combat is avoided on the first point. The same is true for the cliffside hut approach. This was done, as the first objective should not end the game unless the defenders are far better than the attackers. It 
+									exists in order to help the defenders burn the attackers tickets(spawns and vehicles) and time. However, the defenders are still given lanes for counter-attacks and protection. The main facility has very defensible hallways, and has a backdoor
+								 facing the defender's supply lines. The oceanside surge wall also helps to protect against long-range vehicle bombardment, allowing them to much more efficiently use the hangars and rocks as cover.</p>
+								 <p><span class="image left"><img src="images/EqObj2.png" alt="" /></span>A similar desing is found here, where a retaining wall provides a one-way lane for the attackers. However, it is often better served as just a firing position onto the objective, 
+								as the height of the wall does make it harder to push down. The defenders also have a more robust facility, as this is no longer the first objective. There are numerous buildings in close proximity, plenty of rooms to hole up in, and an underground passage
+							 that connects to the bridge over the river. Notably, the river also provides passage through the jungle for vehicles (both armor and logistics), which gives them critical cover from air vehicles.</p>
+							        <span class="image fit"><img src="images/EqNestEgg.png" alt="" /></span>
+									<p><span class="image left"><img src="images/EqNestOver.png" alt="" /></span>On the other end of things, however, we have the defender's 'nest egg' objective. Attackers are limited to four narrow lanes of attack, plus a very restricted 1-way tunnel lane mostly used
+										 to insert saboteurs behind enemy lines. There are multiple strongpoints that the defenders may use, however, all of which are protected from orbital bombardment, and have ideal firing positions. The caveat to all of this, however, is that the defenders must choose to either
+										 strongly defend one of them, or weakly defend all. Because of how the logistics and base building mechanics work, there are no other options. </p>
+								</div>
+							</section>
+
+					</div>
+
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Additional Notes</h1>
+									</header>
+									<p>As the level is 4x4 kilometers, and packed with POIs, continuing to go over the process for each would swiftly turn into an excessively large write-up. So, to wrap-up, I will make a few last generic points that are broadly true for 
+										Sesid Equator as a whole.
+									</p>
+									<p><span class="image left"><img src="images/EqJung1.png" alt="" /></span>As Sesid is a planet covered with jungles, it would be impossible to not discuss them. While they do present a lot of close-quarters combat, they also have
+									 numerous features in them that extend sightlines. These can be roads, ponds, lakes, streams, or even second-growth sections where there is no light for undergrowth to thrive. In each of these cases, ruins, rocks, logs, or various other things are used to provide cover for
+									these medium ingagement distances. This also serves to add additional hard cover, in addition to the excess of soft cover found everywhere else in the jungle. Additionally, numerous locations are provided for each team to set up their spawn locations inside of cover, in order to facilitate better gameplay.</p>
+								<div class="box alt">
+									<div class="row gtr-50 gtr-uniform">
+										<div class="col-4"><span class="image fit"><img src="images/EqJung2.png" alt="" /></span></div>
+										<div class="col-4"><span class="image fit"><img src="images/EqJung3.png" alt="" /></span></div>
+										<div class="col-4"><span class="image fit"><img src="images/EqJung4.png" alt="" /></span></div>
+									</div>
+								</div>
+								<p><span class="image left"><img src="images/EqMain1.png" alt="" /></span>A critical design component is the area surrounding each main base. While main bases have a limited protection zone, they should also have enough terrain-based protection
+									 up to 300 meters out of main. Here, the hanger main inside of the moutain is protected both through tunnel back exits, and sea stacks which prevent any long sightlines. This largely solves any main camping issues.</p>
+									 <p><br></p>
+								   <p><span class="image left"><img src="images/EqMain5.png" alt="" /></span>For the port city serving as a main base, a mix of mountain passes, mines, seastacks, and jungles are used to offer protection. This largely solves any main camping issues for this main, as well.<br><br>Each main also has sufficient cover inside of it,
+								 as there are plans to use them as objectives for small seeding maps (only 20 players or so), and as objectives for alternate gameplay layers once alternative mains are added.</p>
+							   <div class="box alt">
+								   <div class="row gtr-50 gtr-uniform">
+									   <div class="col-4"><span class="image fit"><img src="images/EqMain2.png" alt="" /></span></div>
+									   <div class="col-4"><span class="image fit"><img src="images/EqMain3.png" alt="" /></span></div>
+									   <div class="col-4"><span class="image fit"><img src="images/EqMain4.png" alt="" /></span></div>
+								   </div>
+							   </div>
+							</section>
+
+					</div>
+
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Additional POIs</h1>
+									</header>
+							   <div class="box alt">
+								   <div class="row gtr-50 gtr-uniform">
+									   <div class="col-4"><span class="image fit"><img src="images/EqExtra1.png" alt="" /></span></div>
+									   <div class="col-4"><span class="image fit"><img src="images/EqExtra2.png" alt="" /></span></div>
+									   <div class="col-4"><span class="image fit"><img src="images/EqExtra3.png" alt="" /></span></div>
+									   <div class="col-4"><span class="image fit"><img src="images/EqExtra4.png" alt="" /></span></div>
+									   <div class="col-4"><span class="image fit"><img src="images/EqExtra5.png" alt="" /></span></div>
+									   <div class="col-4"><span class="image fit"><img src="images/EqExtra6.png" alt="" /></span></div>
+									   <div class="col-4"><span class="image fit"><img src="images/EqExtra7.png" alt="" /></span></div>
+									   <div class="col-4"><span class="image fit"><img src="images/EqExtra8.png" alt="" /></span></div>
+									   <div class="col-4"><span class="image fit"><img src="images/EqExtra9.png" alt="" /></span></div>
+									   <div class="col-4"><span class="image fit"><img src="images/EqExtra12.png" alt="" /></span></div>
+									   <div class="col-4"><span class="image fit"><img src="images/EqExtra10.png" alt="" /></span></div>
+									   <div class="col-4"><span class="image fit"><img src="images/EqExtra11.png" alt="" /></span></div>
+								   </div>
+							   </div>
+							   <p>As a note, the 4 dams found on the level are all able to be raised and lowered by the player. This allows for the armor lanes to be more dynamically affected, and creates a small tactical side objective for each team.
+							</p>
+							</section>
+
+					</div>
+
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Minimap</h1>
+									</header>
+									<span class="image main"><img src="images/EqMinimap.PNG" alt="" /></span>
+							</section>
+
+					</div>
+
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Gameplay</h1>
+									</header>
+									<p>Gameplay of Sesid Equator can be found at the following link:
+										<br>
+										<a href="https://www.youtube.com/watch?v=hl4m5HkRiUI&t=1s">Trailer for the overhaul mod</a>
+									</p>
+							</section>
+
+					</div>
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/logan-kocot-8132a8249/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+						<ul class="copyright">
+							<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
