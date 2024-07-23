@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sesid Equator</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Home</strong> <span>Logan Kocot</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="Home.html">Home</a></li>
+							<li><a href="Snake.html">Snake Game</a></li>
+							<li><a href="MultiThread.html">Multithreading</a></li>
+							<li><a href="Hartford.html">The Hartford Work</a></li>
+							<li><a href="Greybox.html">Greybox Work</a></li>
+							<li><a href="SAS.html">Save A Suit Work</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Sesid Equator</h1>
+									</header>
+									<span class="image main"><img src="images/EqSplash.png" alt="" /></span>
+									<p>While with the team at Galactic Contention, I was given the opportunity and the responsibility to create a sequel level to the already-loved Sesid level. This level had to fit in the broader scope of Galactic Contention, which is a total conversion mod for an FPS game called Squad. In it, 2 teams of 50 players each fight in a variety of game modes for control of a planet.
+										As a level designer, I had to ensure that each of these game modes were offered support, whether or not they were planned to be featured at map launch. As a technical developer, I had to ensure that any necessary systems would work well, whether they were for gameplay or optimization.
+									</p>
+									<span class="image fit"><img src="images/CodeSphere.PNG" alt="" /></span>
+									<p>For the level's swimming system, the implementation had to not touch any wider systems. So given that, I began planning for a single overlapping collision volume that would have all swimming logic contained within it.
+										It would inherit from the SQUsable object, so that a player could also have an interact key to trigger an event, rather than having a constant sweep.
+									</p>
+									<span class="image fit"><img src="images/Code1.PNG" alt="" /></span>
+									<p>The player interacting with the zone would cause the server to run an event, which would simply call a multicasted event in order to update the player's status. The two functions called here will be shown in a later screenshot.
+										Finally, only the server will call another event which is only replicated on the server - it performs all the computations and passes the results to the client, so that the computations do not need to be run once for the server and once for each client.
+								   </p>
+								   <span class="image fit"><img src="images/Code2.PNG" alt="" /></span>
+									<p>This is where the server runs the computations for whether the player can swim or not, and how much force is applied in which direction. If the player hits the ground, or switches to a weapon, it also removes the swimming state from their inventory.
+								   </p>
+								   <span class="image fit"><img src="images/Code3.PNG" alt="" /></span>
+									<p>Should the server confirm the player can, in fact, swim, the server will then pass the user and their swim direction vector to this event, which is run on all clients and the server. It will propel the player, and then the server will
+										wait a short time before checking if the player can swim again, and potentially propelling them again.
+								   </p>
+								   <span class="image fit"><img src="images/Code4.PNG" alt="" /></span>
+									<p>Additionally, player movement characteristics are adjusted when entering the water. The player moves slower, has less effect from gravity, and other water-related effects. These are controlled by overlap start and end events.
+								   </p>
+								   <span class="image fit"><img src="images/Code5.PNG" alt="" /></span>
+									<p>The swim check function verifies that the player character is allowed to swim - it must not be prone, crouched, or touching the ground, and must not be a B2 (a very large and heavy droid made of solid metal, which is physically unable to swim).
+								   </p>
+								   <span class="image fit"><img src="images/Code6.PNG" alt="" /></span>
+									<p>I could not add data to a player, but I could manipulate existing data that would have no effect on the current level. So while I did not have access to a boolean flag, I could use an integer as one.
+								   </p>
+								   <span class="image fit"><img src="images/Code7.PNG" alt="" /></span>
+									<p>In order to swim, the player is required to have a swimming 'weapon'. This is, in reality, an unarmed state that plays a swimming animation.
+								   </p>
+								   <span class="image fit"><img src="images/Code8.PNG" alt="" /></span>
+									<p>However, when the player is done swimming, they should not have access to the swimming 'weapon', and so have it removed by this function.
+								   </p>
+								   <span class="image fit"><img src="images/Code9.PNG" alt="" /></span>
+									<p>I had to pull player data in a few places, so it made sense to refactor it into a function.
+								   </p>
+								   <span class="image fit"><img src="images/Code11.PNG" alt="" /></span>
+									<p>This intakes the player data, and multiplies or divides the stats by a pre-determined integer. This prevents the need for data to be stored for each player, which would significantly increase the server's workload.
+										The game supports 100 players, so the amount of data to store would swiftly snowball into a large quantity. By using multiply and divide, I can simply reverse the operation when the player leaves the water.
+								   </p>
+								   <span class="image fit"><img src="images/Code10.PNG" alt="" /></span>
+									<p>Resets the player stats by using the opposite operation.
+								   </p>
+								   <span class="image fit"><img src="images/Code12.PNG" alt="" /></span>
+									<p>The swimming 'weapon' also contains some logic, in order to play a swimming animation and appropriately adjust the player's camera. Due to where it is situated in the system, it has access to necessary systems that the overall 
+										blueprint lacks. However, the overall blueprint still controls whether or not the swimming 'weapon' is active on a player or not.
+								   </p>
+
+								</div>
+							</section>
+
+					</div>
+
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Level Streaming</h1>
+									</header>
+									<p>Additionally, due to the size and detail of Sesid Equator, a multiplayer level streaming system was required. UE4 has a system in place for single player level streaming - but a multiplayer system must be scripted or programmed.
+									</p>
+									<span class="image fit"><img src="images/StreamSphere.PNG" alt="" /></span>
+									<p>Similar to the swimming blueprint, the level streaming blueprint has a single overlapping collision component. However, it also has 6 more walls with overlapping collision. Eventually, the center collision will be removed, but it is a lower priority task for a later date.
+										 Currently, the center collider controls loading of the level on overlap start, while the walls function as exits and control unloading. However, the single large center box is not desired in this case, as it was found that it can negatively effect some systems
+										  it may be used alongside at a later date (which the swimming blueprint will never come in contact with).
+								   </p>
+								   <span class="image fit"><img src="images/Stream1.PNG" alt="" /></span>
+									<p>First, at round start, the server will load everything. It always needs to track collision, as movement collision is checked both clientside and serverside. The same code is also used for when a player begins overlapping with the center collider.
+								   </p>
+								   <span class="image fit"><img src="images/Stream2.PNG" alt="" /></span>
+									<p>However, if the player is running the blueprint at the start of the round, the level connected to the level streaming blueprint instance will be loaded, and the blueprint will wait for them to spawn. There is, unfortunately, no 'spawn' event that I can access,
+										 but a sweep every 0.5 seconds is alright in the spawn screen. Upon spawning, the blueprint will check if the player is inside of the center collider's bounds. It cannot be tied to a begin overlap event, as spawning in will not trigger this. If the player is inside of the bounds, the level will remain loaded, otherwise, it will be unloaded. 
+										 Unloading is much faster and smoother than loading, especially for larger sublevels, so this results in a much smoother and faster experience for the player.
+								   </p>
+								   <span class="image fit"><img src="images/Stream3.PNG" alt="" /></span>
+									<p>When an exit box is hit, the level will be unloaded. This was previously connected to the end overlap on the center box, but this was refactored out when the exit colliders were added.
+								   </p>
+									
+							</section>
+
+					</div>
+
+					
+
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Gameplay</h1>
+									</header>
+									<p><!--Gameplay of Sesid Equator can be found at the following link: 
+										<br> -->
+										<a href="https://www.youtube.com/watch?v=hl4m5HkRiUI&t=1s">Trailer for the overhaul mod</a>
+									</p>
+							</section>
+
+					</div>
+				<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/logan-kocot-8132a8249/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+						<ul class="copyright">
+							<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+				</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
