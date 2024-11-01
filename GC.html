@@ -111,21 +111,42 @@
 									<p>Additionally, due to the size and detail of Sesid Equator, a multiplayer level streaming system was required. UE4 has a system in place for single player level streaming - but a multiplayer system must be scripted or programmed.
 									</p>
 									<span class="image fit"><img src="images/StreamSphere.PNG" alt="" /></span>
-									<p>Similar to the swimming blueprint, the level streaming blueprint has a single overlapping collision component. However, it also has 6 more walls with overlapping collision. Eventually, the center collision will be removed, but it is a lower priority task for a later date.
-										 Currently, the center collider controls loading of the level on overlap start, while the walls function as exits and control unloading. However, the single large center box is not desired in this case, as it was found that it can negatively effect some systems
-										  it may be used alongside at a later date (which the swimming blueprint will never come in contact with).
+									<p>Similar to the swimming blueprint, the level streaming blueprint has a single overlapping collision component. However, it also has 6 more walls with overlapping collision.
+										 Eventually, the center collision will be removed, but it is a lower priority task for a later date. This will enable a streaming volume to take on various irregular shapes,
+										  without the need for multiple specially-made meshes for each instance.
+										 Currently, the center collider controls loading of the level on overlap start, while the walls function as exits and control unloading.
 								   </p>
-								   <span class="image fit"><img src="images/Stream1.PNG" alt="" /></span>
-									<p>First, at round start, the server will load everything. It always needs to track collision, as movement collision is checked both clientside and serverside. The same code is also used for when a player begins overlapping with the center collider.
+								   <span class="image fit"><img src="images/MultiStream1.PNG" alt="" /></span>
+									<p>First, at round start, the server will load everything. It always needs to track collision, as movement collision is checked both clientside and serverside.
+										 The server will then cease running the blueprint, and everything else run will be initiated by the client. This ensures no additional strain is placed on the server, which already has a 100
+										  player lobby to keep track of. 
 								   </p>
-								   <span class="image fit"><img src="images/Stream2.PNG" alt="" /></span>
-									<p>However, if the player is running the blueprint at the start of the round, the level connected to the level streaming blueprint instance will be loaded, and the blueprint will wait for them to spawn. There is, unfortunately, no 'spawn' event that I can access,
-										 but a sweep every 0.5 seconds is alright in the spawn screen. Upon spawning, the blueprint will check if the player is inside of the center collider's bounds. It cannot be tied to a begin overlap event, as spawning in will not trigger this. If the player is inside of the bounds, the level will remain loaded, otherwise, it will be unloaded. 
-										 Unloading is much faster and smoother than loading, especially for larger sublevels, so this results in a much smoother and faster experience for the player.
+								   <p>The client, on the other hand, will load all sublevels at round start, and proceed to continue running the level streaming system. 
+							  </p>
+								   <span class="image fit"><img src="images/MultiStream2.PNG" alt="" /></span>
+									<p>The server will then track whether or not the player spawns. It knows this, because it knows when the player isn't spawned, as the player's character mesh will be null. Once it is non-null,
+										 the system will check which streaming volumes the player is currently inside of. It will keep those sublevels loaded, and unload all others. This prevents any lag spike or delayed loads on spawn,
+										  so the player can continue to enjoy the game without interruptions or visual glitches.
 								   </p>
-								   <span class="image fit"><img src="images/Stream3.PNG" alt="" /></span>
-									<p>When an exit box is hit, the level will be unloaded. This was previously connected to the end overlap on the center box, but this was refactored out when the exit colliders were added.
+								   <p>The player's character mesh will trigger this logic all over again when it is destroyed, so that the system knows to watch for when the player spawns in from the menu.
+									 All sublevels are loaded on player death.
+							  </p>
+								   <span class="image fit"><img src="images/MultiStreamEnter.PNG" alt="" /></span>
+									<p>During the course of gameplay, the player may migrate from zone to zone. When entering a new zone, the system will first check if the sublevel never finished unloading
+										 from when they left. It is critical that a level is only loaded once, as only a single reference will be maintained. Provided that the level is not loaded, the system will
+										  perform a standard level load. The system will then wait for a set time, which may be adjusted per streaming volume.
+										   If the level is still not fully loaded, then the main thread will be briefly halted, so that loading will be completed. This is necessary, as some client computers may
+										    not have the spare system resources to load a level and runt he main thread at the same time. This resolves that issue, with minimal interruptions for the player.
 								   </p>
+								</p>
+								<span class="image fit"><img src="images/MultiStreamExit.PNG" alt="" /></span>
+								 <p>When any exit zone is hit, the same code will be run to unload the level.
+								</p>
+
+							</p>
+							<span class="image fit"><img src="images/MultiStreamLoadEvent.PNG" alt="" /></span>
+							 <p>A custom event called elsewhere in the system, this controls how the player is loading the level.
+							</p>
 									
 							</section>
 
